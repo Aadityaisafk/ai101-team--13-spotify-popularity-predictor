@@ -40,26 +40,25 @@ cd ai101-team--13-spotify-popularity-predictor
 python -m venv venv
 source venv/bin/activate        # Windows: venv\Scripts\activate
 pip install -r requirements.txt
-jupyter notebook
+python src/main.py
 ```
 
-Python version: <x.y>
+Python version: <3.10>
 
 Run the notebooks in this order: `data_preprocessing` → `eda_and_graphs` → `model_training_linear_regression` → `evaluation`.
 
 ## Dataset
 
-- Source: <website, author, download link>
+- Source: [Spotify 114k Tracks Dataset (Kaggle)](https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset)
 - Size before cleaning: 114,000 rows × 22 columns, 114 genres
-- Cleaning changes: <missing values handled, duplicate track_id records, columns removed>
-
+- Cleaning changes: Dropped unneeded index columns (`Unnamed: 0`), removed missing values, dropped duplicate track records by `track_id`, and converted `explicit` to binary integer (0/1).
 ## Expected Outputs
 
 | Metric | Value |
 |---|---|
-| RMSE | <22.0445> |
-| MAE | <18.3904> |
-| R² | <0.0226> |
+| RMSE | 22.0445 |
+| MAE | 18.3904 |
+| R² | 0.0226 |
 
 Files generated in `outputs/`:
 - `actual_vs_predicted.png`: Scatter plot comparing true test popularity against predictions with ideal diagonal line.
@@ -69,11 +68,12 @@ Files generated in `outputs/`:
 
 ## Assets
 
-- 5-slide deck (PDF): <link or docs/slides.pdf>
+- -5-slide deck (PDF): [docs/slides.pdf](docs/slides.pdf)
 - 5-minute walkthrough video: <link>
 
 ## AI Disclosure
 
-Models used: <e.g. Claude>. Used for: <e.g. planning, debugging, README drafting>.
-Verification: <how the team ran the code and checked the results>.
+- Models used: ChatGPT and Gemini.
+- Used for: Assisting with matplotlib diagnostic plot formatting, debugging import paths, and drafting initial documentation structure.
+- Verification: All mathematical logic, preprocessing steps, feature scaling, and model evaluations were tested and verified locally by the team.
 
