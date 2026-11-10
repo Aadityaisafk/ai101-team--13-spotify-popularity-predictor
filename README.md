@@ -34,16 +34,40 @@ ai101-team--13-spotify-popularity-predictor/
 
 ## Setup & Quickstart
 
+### 1. Clone the repository
 ```bash
 git clone https://github.com/Aadityaisafk/ai101-team--13-spotify-popularity-predictor
 cd ai101-team--13-spotify-popularity-predictor
-python -m venv venv
-source venv/bin/activate        # Windows: venv\Scripts\activate
+```
+
+### 2. Create and activate a virtual environment
+
+- **Windows (PowerShell):**
+  ```powershell
+  # If script execution is restricted on Windows, run this once:
+  Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
+
+  python -m venv venv
+  venv\Scripts\activate
+  ```
+
+- **macOS / Linux:**
+  ```bash
+  python3 -m venv venv
+  source venv/bin/activate
+  ```
+
+### 3. Install dependencies
+```bash
 pip install -r requirements.txt
+```
+
+### 4. Run the end-to-end pipeline
+```bash
 python src/main.py
 ```
 
-Python version: <3.10>
+Python version: 3.10+
 
 Run the notebooks in this order: `data_preprocessing` → `eda_and_graphs` → `model_training_linear_regression` → `evaluation`.
 
@@ -68,7 +92,7 @@ Files generated in `outputs/`:
 
 ## Assets
 
-- -5-slide deck (PDF): [docs/slides.pdf](docs/slides.pdf)
+- 5-slide deck (PDF): [docs/slides.pdf](docs/slides.pdf)
 - 5-minute walkthrough video: <link>
 
 ## AI Disclosure
