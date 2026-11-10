@@ -1,7 +1,0 @@
-step,rows_after,columns_after,rows_removed
-Original dataset,114000,22,0
-Drop unnamed index column(s),114000,20,0
-Drop rows with missing values,113999,20,1
-Drop fully identical rows,113549,20,450
-Drop repeated track_id within the same genre,113549,20,0
-Drop invalid records,113392,20,157

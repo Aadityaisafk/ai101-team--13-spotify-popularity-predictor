@@ -2,28 +2,32 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-
+from pathlib import Path
 
 
 print("Libraries imported successfully!")
-df = pd.read_csv("C:/Users/KAYAL/Downloads/archive/spotify-tracks-dataset.csv")
+data_path = Path("data/dataset.csv") if Path("data/dataset.csv").exists() else Path("../data/dataset.csv")
+df = pd.read_csv(data_path)
+
+out_dir = Path("outputs") if Path("outputs").exists() else Path("../outputs")
+out_dir.mkdir(exist_ok=True)
 
 original_shape = df.shape
 print("Dataset shape (rows, columns):", original_shape)
-display(df.head())
+print(df.head())
 print("Dataset dimensions:", df.shape)
 
 print("\nColumn names:")
 print(df.columns.tolist())
 
 print("\nFirst five rows:")
-display(df.head())
+print(df.head())
 
 print("\nData types and missing-value overview:")
 df.info()
 
 print("\nSummary of numerical columns:")
-display(df.describe())
+print(df.describe())
 print("Missing values in each column:")
 print(df.isnull().sum())
 
@@ -33,14 +37,14 @@ print("Repeated track_id rows after the first occurrence:", df["track_id"].dupli
 print("\nRows with zero duration:", (df["duration_ms"] == 0).sum())
 
 print("\nLast ten rows:")
-display(df.tail(10))
+print(df.tail(10))
 print("Mean popularity:", df["popularity"].mean())
 print("Median popularity:", df["popularity"].median())
 print("Minimum popularity:", df["popularity"].min())
 print("Maximum popularity:", df["popularity"].max())
 
 print("\nPopularity summary:")
-display(df["popularity"].describe())
+print(df["popularity"].describe())
 plt.figure(figsize=(8, 4))
 plt.hist(df["popularity"], bins=20, edgecolor="black")
 plt.title("Distribution of Spotify Track Popularity")
@@ -57,7 +61,7 @@ genre_popularity = (
 top_10_genres = genre_popularity.head(10)
 
 print("Top 10 genres by average popularity:")
-display(top_10_genres.reset_index(name="average_popularity"))
+print(top_10_genres.reset_index(name="average_popularity"))
 
 plt.figure(figsize=(10, 5))
 top_10_genres.sort_values().plot(kind="barh", edgecolor="black")
@@ -97,7 +101,7 @@ correlation_with_popularity = (
 )
 
 print("Correlation of numerical features with popularity:")
-display(correlation_with_popularity.to_frame(name="correlation"))
+print(correlation_with_popularity.to_frame(name="correlation"))
 plt.figure(figsize=(9, 5))
 correlation_with_popularity.sort_values().plot(kind="barh", edgecolor="black")
 plt.title("Correlation of Audio Features with Popularity")
@@ -106,10 +110,11 @@ plt.ylabel("Audio feature")
 plt.axvline(0, linestyle="--", linewidth=1)
 plt.grid(axis="x", alpha=0.25)
 plt.tight_layout()
+plt.savefig(out_dir / "correlation_matrix.png", dpi=300)
 plt.show()
 explicit_popularity = df.groupby("explicit")["popularity"].mean()
 print("Average popularity by explicit label:")
-display(explicit_popularity)
+print(explicit_popularity)
 
 plt.figure(figsize=(6, 4))
 explicit_popularity.plot(kind="bar", edgecolor="black")
@@ -124,7 +129,7 @@ df["duration_min"] = df["duration_ms"] / 60000
 print("Average duration (minutes):", df["duration_min"].mean())
 print("Median duration (minutes):", df["duration_min"].median())
 
-display(df[["track_name", "artists", "duration_ms", "duration_min"]].head())
+print(df[["track_name", "artists", "duration_ms", "duration_min"]].head())
 
 print("DATASET OVERVIEW")
 print("Rows:", original_shape[0])

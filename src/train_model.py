@@ -11,15 +11,14 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_absolute_error
 from sklearn.metrics import mean_squared_error
 from sklearn.metrics import r2_score
+from sklearn.preprocessing import StandardScaler
+from pathlib import Path
 
 
-# 2. Upload Dataset
 
-uploaded = files.upload()
 
-file_name = next(iter(uploaded))
-
-df = pd.read_csv(r"C:\Users\Msi pc\Downloads\archive\spotify-tracks-dataset.csv")
+data_path = Path("data/dataset.csv") if Path("data/dataset.csv").exists() else Path("../data/dataset.csv")
+df = pd.read_csv(data_path)
 
 
 # 3. Display Dataset
@@ -41,7 +40,7 @@ print(df.isnull().sum())
 
 df = df.dropna()
 
-df = df.drop_duplicates()
+df = df.drop_duplicates(subset=["track_id"] if "track_id" in df.columns else None)
 
 df = df.drop(
     columns=["Unnamed: 0"],
@@ -78,6 +77,9 @@ X_train, X_test, y_train, y_test = train_test_split(
     random_state=42
 )
 
+scaler = StandardScaler()
+X_train = scaler.fit_transform(X_train)
+X_test = scaler.transform(X_test)
 
 # 7. Create Linear Regression Model
 
@@ -116,13 +118,20 @@ print("R2 Score:", r2)
 
 # 11. Visualize Actual vs Predicted Values
 
-plt.scatter(y_test, y_pred)
+plt.scatter(y_test, y_pred, alpha=0.2, color="#1DB954", label="Test Tracks")
+plt.plot([0, 100], [0, 100], color="red", linestyle="--", linewidth=2, label="Ideal Fit (y = x)")
 
 plt.xlabel("Actual Popularity")
-
 plt.ylabel("Predicted Popularity")
-
 plt.title("Actual vs Predicted Spotify Popularity")
+plt.xlim(0, 100)
+plt.ylim(0, 100)
+plt.legend()
+
+# Create outputs folder if missing and save
+out_dir = Path("outputs") if Path("outputs").exists() else Path("../outputs")
+out_dir.mkdir(exist_ok=True)
+plt.savefig(out_dir / "actual_vs_predicted.png", dpi=300)
 
 plt.show()
 

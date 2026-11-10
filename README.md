@@ -57,11 +57,15 @@ Run the notebooks in this order: `data_preprocessing` → `eda_and_graphs` → `
 
 | Metric | Value |
 |---|---|
-| RMSE | <fill after running> |
-| MAE | <fill after running> |
-| R² | <fill after running> |
+| RMSE | <22.0445> |
+| MAE | <18.3904> |
+| R² | <0.0226> |
 
-Plots saved in `outputs/`: <list file names>
+Files generated in `outputs/`:
+- `actual_vs_predicted.png`: Scatter plot comparing true test popularity against predictions with ideal diagonal line.
+- `residuals_plot.png`: Residual error distribution plot.
+- `correlation_matrix.png`: Pearson correlation heatmap of audio features and popularity.
+- `metrics_summary.csv`: Summary table containing the evaluation scores.
 
 ## Assets
 
@@ -72,3 +76,4 @@ Plots saved in `outputs/`: <list file names>
 
 Models used: <e.g. Claude>. Used for: <e.g. planning, debugging, README drafting>.
 Verification: <how the team ran the code and checked the results>.
+
