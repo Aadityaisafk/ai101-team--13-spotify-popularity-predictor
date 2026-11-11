@@ -20,8 +20,8 @@ ai101-team--13-spotify-popularity-predictor/
 ├── data/
 │   └── dataset.csv
 ├── notebooks/
-│   ├── data_preprocessing.ipynb
-│   ├── eda_and_graphs.ipynb
+│   ├── datapreprocessing.ipynb
+│   ├── eda and graphs(1).ipynb
 │   ├── model_training_linear_regression.ipynb
 │   └── evaluation.ipynb
 ├── outputs/            # saved plots and metrics
