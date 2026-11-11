@@ -96,7 +96,7 @@ Files generated in `outputs/`:
 ## Assets
 
 - 5-slide deck (PPT):[View Presentation](https://drive.google.com/drive/folders/1lhswDSOUj2Asl7kqQsuJAC4r9Ok6h7z5?usp=drive_link)
-- 5-minute walkthrough video: <https://youtu.be/Sqi4B2JL3g0?si=3Mg5G2iPmh5zt3MX>
+- 5-minute walkthrough video: <link>
 
 ## AI Disclosure
 
