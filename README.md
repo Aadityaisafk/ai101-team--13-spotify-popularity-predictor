@@ -21,19 +21,24 @@ ai101-team--13-spotify-popularity-predictor/
 │   └── dataset.csv
 ├── notebooks/
 │   ├── datapreprocessing.ipynb
-│   ├── eda and graphs(1).ipynb
-│   ├── model_training_linear_regression.ipynb
-│   └── evaluation.ipynb
+│   ├── eda and graphs
+│   ├── Hit_Song_Popularity_Prediction_.ipynb
+├── src
+│   ├── eda.py
+│   ├── evaluation.py
+│   ├── main.py
+│   ├── preprocess.py
+│   ├── train_model.py
 ├── outputs/            # saved plots and metrics
 ├── docs/
-│   └── slides.pdf
+│   └── SPOTIFY TRACKING POPULARITY PPT.pptx
 ├── requirements.txt
 ├── .gitignore
 └── README.md
 ```
 
 ## Setup & Quickstart
-
+Tested on python 3.10,3.11 and 3.12 across Windows, macOS and Ubuntu Linux
 ### 1. Clone the repository
 ```bash
 git clone https://github.com/Aadityaisafk/ai101-team--13-spotify-popularity-predictor
