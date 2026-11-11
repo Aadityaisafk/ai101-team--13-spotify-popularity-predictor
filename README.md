@@ -97,7 +97,7 @@ Files generated in `outputs/`:
 
 ## AI Disclosure
 
-- Models used: ChatGPT and Gemini.
+- Models used: ChatGPT,claude and Gemini.
 - Used for: Assisting with matplotlib diagnostic plot formatting, debugging import paths, and drafting initial documentation structure.
 - Verification: All mathematical logic, preprocessing steps, feature scaling, and model evaluations were tested and verified locally by the team.
 
