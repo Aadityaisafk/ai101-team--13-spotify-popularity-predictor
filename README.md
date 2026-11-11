@@ -67,9 +67,7 @@ pip install -r requirements.txt
 python src/main.py
 ```
 
-Python version: 3.10+
-
-Run the notebooks in this order: `data_preprocessing` → `eda_and_graphs` → `model_training_linear_regression` → `evaluation`.
+> **Note on Notebooks:** The core pipeline runs entirely via `python src/main.py` without external build tools. To interactively edit notebooks in `notebooks/`, open them in VS Code (with the Jupyter extension) or install `jupyterlab` separately (`pip install jupyterlab`).
 
 ## Dataset
 
